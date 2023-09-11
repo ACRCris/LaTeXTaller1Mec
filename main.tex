@@ -1,0 +1,312 @@
+\documentclass[a4paper]{article}
+\usepackage{student}
+\usepackage{graphicx}
+
+\usepackage{cancel}
+
+% Metadata
+\date{\today}
+
+%-------------------------------%
+% Other details
+% TODO: Fill these
+%-------------------------------%
+\title{Taller 3}
+\setmembername{Cristian Camilo Pérez Puentes,Laura Ximena Rodríguez Quintero,Juan José Ruiz}
+
+
+%-------------------------------%
+% Add / Delete commands and packages
+% TODO: Add / Delete here as you need
+%-------------------------------%
+\usepackage{amsmath,amssymb,bm}
+\usepackage[spanish]{babel}
+
+% Custom your usual commands here. Renew these.
+\newcommand{\KL}{\mathrm{KL}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\T}{\top}
+\newcommand{\expdist}[2]{%
+        \normalfont{\textsc{Exp}}(#1, #2)%
+    }
+\newcommand{\expparam}{\bm \lambda}
+\newcommand{\Expparam}{\bm \Lambda}
+\newcommand{\natparam}{\bm \eta}
+\newcommand{\Natparam}{\bm H}
+\newcommand{\sufstat}{\bm u}
+
+% Main document
+\begin{document}
+    % Add header
+    \header{}
+
+    % Use `answer` environment to add solutions
+    % \begin{answer}[Question 1.1] for example starts an environment formatted
+    % for Question 1.1
+    \section{La distribución de Maxwell-Boltzmann}
+    \input{punto1/intro.tex}\\
+    \input{punto1/a.tex}
+    \input{punto1/solucionA.tex}
+    \input{punto1/b.tex}
+    \input{punto1/solucionB.tex}
+    \input{punto1/intro2.tex}
+    \input{punto1/c.tex}
+    \input{punto1/solucionC.tex}
+    \input{punto1/d.tex}
+    \input{punto1/solucionD.tex}
+    \input{punto1/e.tex}
+    \section{ ¿Qué tan probable es encontrar más moléculas de un gas a 
+    un lado que al otro de un salón?}
+    \input{punto2/intro.tex}
+    \input{punto2/a.tex}
+    \input{punto2/solucionA.tex}
+    \input{punto2/b.tex}
+    \input{punto2/solucionB.tex}
+    \input{punto2/c.tex}
+    \input{punto2/d.tex}
+
+    \begin{answer}[punto ]
+        Dado que $$P_I(k) = \frac{\Omega_I(k) \Omega_D(n-k)}{\Omega_I(n)}$$
+        entonces:
+        \begin{align*}
+            P_I(k + \epsilon) &= \frac{\Omega_I(k) \Omega_D(n-k)}{\Omega_I(n)} \\
+            &= \frac{{I \choose k} {D \choose n - k}}{{N \choose n}} \\
+            &= \frac{\frac{I!}{(k)!(I - k)!} \frac{D!}{(n - k)!(D - n + k)!}}{\frac {N!}{n!(N - n)!}} \\
+            &= \frac{\frac{I!}{(k)!(I - k)!} \frac{(N-I)!}{(n - k)!(D - n + k)!}}{\frac {N!}{n!(N - n)!}} \\
+            &= \frac{I!(N-I)!n!(N-n)!}{(k)!(I - k)!(n - k)!(D - n + k)!N!} \\
+            &= \frac{n!(N-n)!}{(k)!(I - k)!(n - k)!((N-I) - n + k)!}\frac{1}{{N \choose I}} \\
+            &= \frac{(N-n)!}{(I - k)!((N-I) - n + k)!}\frac{{n \choose k}}{{N \choose I}} \\
+            &= \frac{(N-n)!}{(I - k)!((N-n) - (I - k))!}\frac{{n \choose k}}{{N \choose I}} \\
+            &= {N-n \choose I - k}\frac{{n \choose k}}{{N \choose I}} \\
+        \end{align*}
+        Aplicando la aproximacion de logaritmo natural a:
+        $$
+         \frac{I!(N-I)!n!(N-n)!}{(k + \epsilon)!(I - (k+\epsilon))!(n - k-\epsilon)!((N-I) - n + k+\epsilon)!N!} \\
+        $$
+        tenemos que:
+        \begin{align*}
+            &\ln \left[
+            \frac{I!(N-I)!n!(N-n)!}{(k + \epsilon)!(I - (k+\epsilon))!(n - k-\epsilon)!((N-I) - n + k+\epsilon)!N!}
+            \right] \\
+            &= \ln \left[I! (N-I)! n! (N-n)! \right] - \ln \left[(k + \epsilon)! (I - (k+\epsilon))! (n - k-\epsilon)! ((N-I) - n + k+\epsilon)! N! \right] \\
+            &= \ln \left(I!\right) + \ln \left((N-I)!\right) + \ln \left(n!\right) + \ln \left((N-n)!\right) \\
+            &- \ln \left((k + \epsilon)!\right) - \ln \left((I - (k+\epsilon))!\right) - \ln \left((n - k-\epsilon)!\right) - \ln \left(((N-I) - n + k+\epsilon)!\right) - \ln \left(N!\right)  \\
+        \end{align*}
+        Y a esto ultimo aplicando la aproximacion de Stirling:
+        \begin{align*}
+            &\ln \left[
+            \frac{I!(N-I)!n!(N-n)!}{(k + \epsilon)!(I - (k+\epsilon))!(n - k-\epsilon)!((N-I) - n + k+\epsilon)!N!}
+            \right] \\
+            &= I \ln \left(I\right) - \cancel I + ( N-I) \ln \left(N-I\right) - (\cancel N-\cancel I) + n \ln \left(n\right) - \cancel n + (N-n) \ln \left(N-n\right) - (N-\cancel n) \\
+            &- (k + \epsilon) \ln \left(k + \epsilon\right) + (k + \epsilon) - (I - (k+\epsilon)) \ln \left(I - (k+\epsilon)\right) + (I - (k+\epsilon)) \\
+            &- (n - k-\epsilon) \ln \left(n - k-\epsilon\right) + (n - k-\epsilon) - ((N-I) - n + k+\epsilon) \ln \left((N-I) - n + k+\epsilon\right) \\
+            &+ ((N-I) - n + k+\epsilon) - N \ln \left(N\right) +\cancel N \\
+            &= I \ln \left(I\right)  + ( N-I) \ln \left(N-I\right) + n \ln \left(n\right)  + (N-n) \ln \left(N-n\right) - \cancel N \\
+            &- (k + \epsilon) \ln \left(k + \epsilon\right) + \cancel{(k + \epsilon)} - (I - (k+\epsilon)) \ln \left(I - (k+\epsilon)\right) + (I - \cancel{(k+\epsilon)}) \\
+            &- (n - k-\epsilon) \ln \left(n - k-\epsilon\right) + \cancel{(n - k-\epsilon)} - ((N-I) - n + k+\epsilon) \ln \left((N-I) - (n - k-\epsilon)\right) \\
+            &+ ((\cancel N-I) -\cancel{(n - k-\epsilon)}) - N \ln \left(N\right)  \\
+            &= I \ln \left(I\right)  + ( N-I) \ln \left(N-I\right) + n \ln \left(n\right)  + (N-n) \ln \left(N-n\right)\\
+            &- (k + \epsilon) \ln \left(k + \epsilon\right)  - (I - (k+\epsilon)) \ln \left(I - (k+\epsilon)\right)  \\
+            &- (n - k-\epsilon) \ln \left(n - k-\epsilon\right) - ((N-I) - n + k+\epsilon) \ln \left((N-I) - (n - k-\epsilon)\right) \\
+            & - N \ln \left(N\right) \\
+        \end{align*}
+        \begin{align*}
+            &= I \ln \left(I\right)  + N\ln \left(N-I\right)-I\ln \left(N-I\right) + n \ln \left(n\right)  + N\ln \left(N-n\right)-n\ln \left(N-n\right)\\
+            &- k \ln \left(k + \epsilon\right) - \epsilon \ln \left(k + \epsilon\right)  - I \ln \left(I - (k+\epsilon)\right) + k\ln \left(I - (k+\epsilon)\right)  + \epsilon \ln \left(I - (k+\epsilon)\right)  \\
+            &- n \ln \left(n - k-\epsilon\right) + k \ln \left(n - k-\epsilon\right) + \epsilon \ln \left(n - k-\epsilon\right) \\
+            &- N \ln \left((N-I)\right) -I \ln \left((N-I) - (n - k-\epsilon)\right) - n \ln \left((N-I) - (n - k-\epsilon)\right) \\
+            &+ k \ln \left((N-I) - (n - k-\epsilon)\right) + \epsilon \ln \left((N-I) - (n - k-\epsilon)\right) \\
+            & - N \ln \left(N\right) \\
+            &= I\left[
+                \ln \left(I\right)  - \ln \left(N-I\right) - \ln \left(I - (k+\epsilon)\right) + \ln \left((N-I) - (n - k-\epsilon)\right)
+            \right]\\
+            &+ N\left[
+                \ln \left(N-I\right) - \ln \left(N\right)
+            \right]\\
+            &+ n\left[
+                \ln \left(n\right)  - \ln \left(N-n\right) - \ln \left(n - k-\epsilon\right) + \ln \left((N-I) - (n - k-\epsilon)\right)
+            \right]\\
+        \end{align*}
+        entonces
+        \begin{align*}
+            &\frac{I!(N-I)!n!(N-n)!}{(k + \epsilon)!(I - (k+\epsilon))!(n - k-\epsilon)!((N-I) - n + k+\epsilon)!N!}\\ 
+            &=\frac{\sqrt{2\pi I}(\frac{I}{e})^I\sqrt{2\pi (N-I)}(\frac{N-I}{e})^{N-I}\sqrt{2\pi n}(\frac{n}{e})^n\sqrt{2\pi (N-n)}(\frac{N-n}{e})^{N-n}}{\sqrt{2\pi (k + \epsilon)}(\frac{k + \epsilon}{e})^{k + \epsilon}\sqrt{2\pi (I - (k+\epsilon))}(\frac{I - (k+\epsilon)}{e})^{I - (k+\epsilon)}} \\
+            &\frac{1}{\sqrt{2\pi (n - k-\epsilon)}(\frac{n - k-\epsilon}{e})^{n - k-\epsilon}\sqrt{2\pi ((N-I) - n + k+\epsilon)}(\frac{(N-I) - n + k+\epsilon}{e})^{(N-I) - n + k+\epsilon}\sqrt{2\pi N}(\frac{N}{e})^N}
+        \end{align*}     
+    \end{answer}
+    $$
+    P(x, p)=\frac{2 \pi}{\beta \omega} e^{-\beta\left[\frac{p^2}{2 m}+\frac{1}{2} k x^2\right]},\qquad  \operatorname{con} \beta=\frac{1}{k_B T} \qquad \mathrm{y} \qquad \omega=\sqrt{\frac{k}{m}}
+    $$
+    Deduzca que la distribución de probabilidad marginal teórica $P(x)$, que se construye integrando la probabilidad de Boltzmann $P(x, p)$ sobre $p$,
+    $$
+    P(x)=\frac{2 \pi k_B T}{\omega} \int_{-\infty}^{\infty} e^{-\beta\left[\frac{p^2}{2 m}+\frac{1}{2} k x^2\right]} d p,
+    $$
+    es una gaussiana centrada en cero con desviación estándar $\sigma_x=\sqrt{k_B T / k}$. De manera similar, demuestre que la distribución de probabilidad marginal teórica $P(p)$, que se construye integrando la probabilidad de Boltzmann $P(x, p)$ sobre $\mathrm{x}$,
+    $$
+    P(p)=\frac{2 \pi k_B T}{\omega} \int_{-\infty}^{\infty} e^{-\beta\left[\frac{p^2}{2 m}+\frac{1}{2} k x^2\right]} d x,
+    $$
+    resulta ser una gaussiana con media cero y desviación estándar $\sigma_p=\sqrt{m k_B T}$.
+
+    \begin{answer}
+        \begin{align*}
+            P(x) &= \frac{2 \pi k_B T}{\omega} \int_{-\infty}^{\infty} e^{-\beta\left[\frac{p^2}{2 m}+\frac{1}{2} k x^2\right]} d p \\
+            &= \frac{2 \pi k_B T}{\omega} \int_{-\infty}^{\infty} e^{-\beta\left[\frac{p^2}{2 m}+\frac{1}{2} k x^2\right]} d p \\
+            &= \frac{2 \pi k_B T}{\omega} \int_{-\infty}^{\infty} e^{-\beta\left[\frac{p^2}{2 m}\right]} e^{-\beta\left[\frac{1}{2} k x^2\right]} d p \\
+            &= \frac{2 \pi k_B T}{\omega} e^{-\beta\left[\frac{1}{2} k x^2\right]} \int_{-\infty}^{\infty} e^{-\beta\left[\frac{p^2}{2 m}\right]} d p \\
+        \end{align*}
+        Si $z^2 = \beta \frac{p^2}{2m}$ entonces $z= p\sqrt{\beta \frac{1}{2m}}$ y $d z = \sqrt{\beta \frac{1}{2m}} d p$ por lo que:
+
+        \begin{align*}
+            P(x) &= \frac{2 \pi k_B T}{\omega} e^{-\beta\left[\frac{1}{2} k x^2\right]} \int_{-\infty}^{\infty} e^{-z^2} \sqrt{ \frac{2 m}{\beta}} d z \\
+            &= \frac{2 \pi k_B T}{\omega} e^{-\beta\left[\frac{1}{2} k x^2\right]} \sqrt{\frac{2 m}{\beta}}  \int_{-\infty}^{\infty} e^{-z^2} d z \\
+            &= \frac{2 \pi k_B T}{\omega} e^{-\beta\left[\frac{1}{2} k x^2\right]} \sqrt{\frac{2 m}{\beta}} \sqrt{\pi} \\
+        \end{align*}
+        No esta normalizada pues:
+        \begin{align*}
+            \int P(x) dx &= \int \frac{2 \pi k_B T}{\omega} e^{-\beta\left[\frac{1}{2} k x^2\right]} \sqrt{\frac{2 m}{\beta}} \sqrt{\pi} dx \\
+            &= \frac{2 \pi k_B T}{\omega} \sqrt{\frac{2m \pi }{\beta}} \int e^{-\beta\left[\frac{1}{2} k x^2\right]} dx \\
+            &= \frac{2 \pi k_B T}{\omega} \sqrt{\frac{2m \pi }{\beta}} \sqrt{\frac{2 \pi}{\beta k}} \\
+            &= \frac{2 \pi k_B T}{\omega} \sqrt{\frac{2m \pi }{\beta}} \sqrt{\frac{2 \pi}{\beta k}} \\
+            &= 4 \pi^2 k_B T \sqrt{\frac mk} \frac 1\beta \sqrt{\frac mk}\\
+            &= 4 \pi^2 (k_B T)^2 \frac mk \\
+        \end{align*}
+        Por lo que la normalizamos dividiendo por $4 \pi^2 (k_B T)^2 \frac mk$ y obtenemos:
+        \begin{align*}
+            \rho(x) &= \frac{P(x)}{4 \pi^2 (k_B T)^2 \frac mk} \\
+            &=\frac{1}{\cancel 4 \pi^{\cancel 2} (k_B T)^{\cancel 2}}\frac{k}{m} \frac{\cancel {2\pi k_B T}}{\omega} e^{-\beta\left[\frac{1}{2} k x^2\right]} \sqrt{\frac{2 \pi m}{\beta}} \\
+            &= \frac{1}{2 \pi (k_B T)} \sqrt{\frac{k}{\cancel m}} \cancel{\sqrt{\frac{k}{m}}} \cancel{\sqrt{\frac{m}{k}}} \sqrt{\frac{2 \pi \cancel m}{\beta}} e^{-\beta\left[\frac{1}{2} k x^2\right]} \\
+            &= \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi k}{\beta}} e^{-\beta\left[\frac{1}{2} k x^2\right]}\\
+        \end{align*}
+        Claramente $\rho(x)$ esta normalizada.\\
+        Ahora dado que la desviación estándar $\sigma$ satisface que:
+        $$
+        \sigma^2 =\langle x^2\rangle -\langle x\rangle^2
+        $$
+        donde
+        \begin{align*}
+            \langle x\rangle &= \int_{-\infty}^{\infty} x \rho(x) dx \\
+            &= \int_{-\infty}^{\infty} x \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi k}{\beta}} e^{-\beta\left[\frac{1}{2} k x^2\right]} dx \\
+            &= \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi k}{\beta}}  \int_{-\infty}^{\infty} x e^{-\beta\left[\frac{1}{2} k x^2\right]} dx \\
+        \end{align*}
+        relizando la sustitución $y^2 = \beta \frac{1}{2} k x^2$ entonces $x = \sqrt{\frac{2}{\beta k}} y$ y $dx = \sqrt{\frac{2}{\beta k}} dy$ por lo que:
+        \begin{align*}
+            \langle x\rangle &= \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi k}{\beta}}  \int_{-\infty}^{\infty} \sqrt{\frac{2}{\beta k}} y e^{-y^2} \sqrt{\frac{2}{\beta k}} dy \\
+            &= \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi k}{\beta}}\left(
+                \frac{2}{\beta k}
+            \right)\int_{-\infty}^{\infty} y e^{-y^2} dy \\
+            &= \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi k}{\beta}}\left(
+                \frac{2}{\beta k}
+            \right) \left.\left(-\frac{1}{2} e^{-y^2} \right)\right|_{-\infty}^{\infty} \\
+            &= 0 \\
+        \end{align*}
+        y
+        \begin{align*}
+            \langle x^2\rangle &= \int_{-\infty}^{\infty} x^2 \rho(x) dx \\
+            &= \int_{-\infty}^{\infty} x^2\frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi k}{\beta}} e^{-\beta\left[\frac{1}{2} k x^2\right]}  dx \\
+            &=\frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi k}{\beta}} \int_{-\infty}^{\infty} x^2 e^{-\beta\left[\frac{1}{2} k x^2\right]} dx \\
+        \end{align*}
+        relizando una vez mas la sustitución $y^2 = \beta \frac{1}{2} k x^2$ entonces $x = \sqrt{\frac{2}{\beta k}} y$ y $dx = \sqrt{\frac{2}{\beta k}} dy$ por lo que:
+        \begin{align*}
+            \langle x^2\rangle &= \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi k}{\beta}}  \int_{-\infty}^{\infty} \frac{2}{\beta k} y^2 e^{-y^2} \sqrt{\frac{2}{\beta k}} dy \\
+            &= \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi k}{\beta}} \left(\frac{2}{\beta k}\right)^{3/2}  \int_{-\infty}^{\infty} y^2 e^{-y^2} dy \\
+        \end{align*}
+        Ahora realizano integracion por partes sea: $u = y$ y $dv = y e^{-y^2} dy$ entonces $du = dy$ y $v = -\frac{1}{2} e^{-y^2}$ por lo que:
+    
+        \begin{align*}
+            \langle x^2 \rangle &=\frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi k}{\beta}} \left(\frac{2}{\beta k}\right)^{3/2}  \left[
+                \left.\left(-\frac{1}{2} y e^{-y^2} \right)\right|_{-\infty}^{\infty} - \int_{-\infty}^{\infty} \left(-\frac{1}{2} e^{-y^2} \right) dy
+            \right]\\
+            &=\frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi k}{\beta}} \left(\frac{2}{\beta k}\right)^{3/2}  \left(\int_{-\infty}^{\infty}\frac{1}{2} e^{-y^2} \right) \\
+            &=\frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi k}{\beta}} \left(\frac{2}{\beta k}\right)^{3/2}  \frac{1}{2} \sqrt{\pi} \\
+            &=\frac{\cancel{4\pi}}{\cancel{4\pi} (k_B T)} \sqrt{\frac{k}{\beta}} \left(\frac{1}{\beta k}\right)^{3/2}  \\
+            &=\frac{1}{k_B T} \frac{1}{\beta^2 k} = \frac{1}{\cancel{k_B T}} \frac{(k_B T)^{\cancel 2}}{ k}\\
+            &= \frac{k_B T}{k}\\
+        \end{align*}
+        De esta forma:
+        \begin{align*}
+            \sigma^2 =\langle x^2\rangle -\cancelto{0}{\langle x\rangle^2} \quad &\Rightarrow \quad \sigma^2 = \frac{k_B T}{k} \\
+            &\Rightarrow \quad \sigma &= \sqrt{\frac{k_B T}{k}} \\
+        \end{align*} 
+        Procediendo de la misma forma con $P(p)$ tenemos que:
+        \begin{align*}
+            P(p) &= \frac{2 \pi k_B T}{\omega} \int_{-\infty}^{\infty} e^{-\beta\left[\frac{p^2}{2 m}+\frac{1}{2} k x^2\right]} d x \\
+            &= \frac{2 \pi k_B T}{\omega} \int_{-\infty}^{\infty} e^{-\beta\left[\frac{p^2}{2 m}+\frac{1}{2} k x^2\right]} d x \\
+            &= \frac{2 \pi k_B T}{\omega} \int_{-\infty}^{\infty} e^{-\beta\left[\frac{p^2}{2 m}\right]} e^{-\beta\left[\frac{1}{2} k x^2\right]} d x \\
+            &= \frac{2 \pi k_B T}{\omega} e^{-\beta\left[\frac{p^2}{2 m}\right]} \int_{-\infty}^{\infty} e^{-\beta\left[\frac{1}{2} k x^2\right]} d x \\
+        \end{align*}
+        Si $z^2 = \beta \frac{1}{2} k x^2$ entonces $x = \sqrt{\frac{2}{\beta k}} z$ y $dx = \sqrt{\frac{2}{\beta k}} dz$ por lo que:
+        \begin{align*}
+            P(p) &= \frac{2 \pi k_B T}{\omega} e^{-\beta\left[\frac{p^2}{2 m}\right]} \int_{-\infty}^{\infty} e^{-z^2} \sqrt{ \frac{2}{\beta k}} dz \\
+            &= \frac{2 \pi k_B T}{\omega} e^{-\beta\left[\frac{p^2}{2 m}\right]} \sqrt{\frac{2}{\beta k}}  \int_{-\infty}^{\infty} e^{-z^2} dz \\
+            &= \frac{2 \pi k_B T}{\omega} e^{-\beta\left[\frac{p^2}{2 m}\right]} \sqrt{\frac{2\pi}{\beta k}}  \\
+        \end{align*}
+        No esta normalizada pues:
+        \begin{align*}
+            \int P(p) dp &= \int \frac{2 \pi k_B T}{\omega} e^{-\beta\left[\frac{p^2}{2 m}\right]} \sqrt{\frac{2\pi}{\beta k}}  dp \\
+            &= \frac{2 \pi k_B T}{\omega} \sqrt{\frac{2\pi}{\beta k}}  \int e^{-\beta\left[\frac{p^2}{2 m}\right]} dp \\
+            &= \frac{2 \pi k_B T}{\omega} \sqrt{\frac{2\pi}{\beta k}}  \sqrt{\frac{2 \pi m}{\beta}} \\
+            &= 4 \pi^2 k_B T \sqrt{\frac mk} \frac 1\beta \sqrt{\frac mk}\\
+            &= 4 \pi^2 (k_B T)^2 \frac mk \\
+        \end{align*}
+        Por lo que la normalizamos dividiendo por $4 \pi^2 (k_B T)^2 \frac mk$ y obtenemos:
+        \begin{align*}
+            \rho(p) &= \frac{P(p)}{4 \pi^2 (k_B T)^2 \frac mk} \\
+            &=\frac{1}{\cancel 4 \pi^{\cancel 2} (k_B T)^{\cancel 2}}\frac{k}{m} \frac{\cancel {2\pi k_B T}}{\omega} e^{-\beta\left[\frac{p^2}{2 m}\right]} \sqrt{\frac{2 \pi}{\beta k}} \\
+            &= \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi}{\beta \cancel k}} \sqrt{\frac {\cancel k}m} \cancel{\sqrt{\frac km}} \cancel{\sqrt{\frac mk}} e^{-\beta\left[\frac{p^2}{2 m}\right]} \\
+            &= \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi}{\beta m}} e^{-\beta\left[\frac{p^2}{2 m}\right]}\\
+        \end{align*}
+        Claramente $\rho(p)$ esta normalizada.\\
+        Ahora dado que la desviación estándar $\sigma$ satisface que:
+        $$
+        \sigma^2 =\langle p^2\rangle -\langle p\rangle^2
+        $$
+        donde
+        \begin{align*}
+            \langle p\rangle &= \int_{-\infty}^{\infty} p \rho(p) dp \\
+            &= \int_{-\infty}^{\infty} p \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi}{\beta m}} e^{-\beta\left[\frac{p^2}{2 m}\right]} dp \\
+            &= \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi}{\beta m}}  \int_{-\infty}^{\infty} p e^{-\beta\left[\frac{p^2}{2 m}\right]} dp \\
+        \end{align*}
+        relizando la sustitución $y^2 = \beta \frac{p^2}{2m}$ entonces $p = \sqrt{\frac{2m}{\beta}} y$ y $dp = \sqrt{\frac{2m}{\beta}} dy$ por lo que:
+        \begin{align*}
+            \langle p\rangle &= \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi}{\beta m}}  \int_{-\infty}^{\infty} \sqrt{\frac{2m}{\beta}} y e^{-y^2} \sqrt{\frac{2m}{\beta}} dy \\
+            &= \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi}{\beta m}}\left(
+                \frac{2m}{\beta}
+            \right)\int_{-\infty}^{\infty} y e^{-y^2} dy \\
+            &= \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi}{\beta m}}\left(
+                \frac{2m}{\beta}
+            \right) \left.\left(-\frac{1}{2} e^{-y^2} \right)\right|_{-\infty}^{\infty} \\
+            &= 0 \\
+        \end{align*}
+        y
+        \begin{align*}
+            \langle p^2\rangle &= \int_{-\infty}^{\infty} p^2 \rho(p) dp \\
+            &= \int_{-\infty}^{\infty} p^2\frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi}{\beta m}} e^{-\beta\left[\frac{p^2}{2 m}\right]}  dp \\
+            &=\frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi}{\beta m}} \int_{-\infty}^{\infty} p^2 e^{-\beta\left[\frac{p^2}{2 m}\right]} dp \\
+        \end{align*}
+        relizando una vez mas la sustitución $y^2 = \beta \frac{p^2}{2m}$ entonces $p = \sqrt{\frac{2m}{\beta}} y$ y $dp = \sqrt{\frac{2m}{\beta}} dy$ por lo que:
+        \begin{align*}
+            \langle p^2\rangle &= \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi}{\beta m}}  \int_{-\infty}^{\infty} \frac{2m}{\beta} y^2 e^{-y^2} \sqrt{\frac{2m}{\beta}} dy \\
+            &= \frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi}{\beta m}} \left(\frac{2m}{\beta}\right)^{3/2}  \int_{-\infty}^{\infty} y^2 e^{-y^2} dy \\
+        \end{align*}
+        Ahora realizano integracion por partes sea: $u = y$ y $dv = y e^{-y^2} dy$ entonces $du = dy$ y $v = -\frac{1}{2} e^{-y^2}$ por lo que:
+        \begin{align*}
+            \langle p^2 \rangle &=\frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi}{\beta m}} \left(\frac{2m}{\beta}\right)^{3/2}  \left[
+                \left.\left(-\frac{1}{2} y e^{-y^2} \right)\right|_{-\infty}^{\infty} - \int_{-\infty}^{\infty} \left(-\frac{1}{2} e^{-y^2} \right) dy
+            \right]\\
+            &=\frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi}{\beta m}} \left(\frac{2m}{\beta}\right)^{3/2}  \left(\int_{-\infty}^{\infty}\frac{1}{2} e^{-y^2} \right) \\
+            &=\frac{1}{2 \pi (k_B T)} \sqrt{\frac{2\pi}{\beta m}} \left(\frac{2m}{\beta}\right)^{3/2}  \frac{1}{2} \sqrt{\pi} \\
+            &=\frac{\cancel{4\pi}}{\cancel{4\pi} (k_B T)} \sqrt{\frac{1}{m\beta}} \left(\frac{m}{\beta}\right)^{3/2}  \\
+            &=\frac{1}{k_B T} \frac{m}{\beta^2} = \frac{1}{\cancel{k_B T}} \frac{m}{\beta^{\cancel 2}}\\
+            &= \frac{m}{\beta}= m k_B T\\
+        \end{align*}
+    \end{answer}
+    \begin{answer}
+        Dado que $\sigma = \sqrt{\frac{k_B T}{k}}$ y en el limite difuso $k_B T = b^2 \frac m\gamma$ entonces:
+        $$
+        k\sigma^2_x = k\frac{k_B T}{k} =  b^2 \frac m\gamma 
+        $$
+        Si $k_BT = b^2 \frac m\gamma$
+    \end{answer}
+
+\end{document}
