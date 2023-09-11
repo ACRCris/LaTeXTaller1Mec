@@ -1,47 +1,44 @@
 \begin{answer}
-    En ensamble estadistico esta dado por las probabilidades $P_I(i)$ con $i=1,2,\dots, n$. Pues
+    Si vemos un ensamble estadistico como $P\subseteq \Omega \times [0,1]$, es decir,
     \begin{align*}
-        \sum_{i=0}^n P_I(i) &= \sum_{i=0}^n \frac{\Omega_I(i) \Omega_D(l_i)}{\Omega_n(N)} \\
-        &= \frac{1}{\Omega_n(N)} \sum_{i=0}^n \Omega_I(i) \Omega_D(l_i) \\
-        &= \frac{1}{\Omega_n(N)} \sum_{i=0}^n {I \choose i} {N-I \choose l_i} \\
-        &= \frac{1}{\Omega_n(N)} {N \choose n} \quad \text{Chu-Vandermonde identity} \\
-        &= 1
+        P: &\Omega \mapsto [0,1]\\
+        &\omega \mapsto P(\omega) \in [0,1]
     \end{align*}
-    Por lo tanto, la entropia del sistema es:
+    tal que $P := \{(\omega,\rho): \omega \in \Omega \quad \text{y} \quad \rho \in [0,1]\}$ si $\Omega$ es finito y sea $\{p_i\}_{i=1}^n$ un familia de subconjunto de $P$ tal que $p_i \cap p_ j = \emptyset$ para $i\neq j$ y $\bigcup_{i=1}^n p_i = P$ entonces la entropia 
+    del ensamble la cual se define como:
     \begin{align*}
-        S &= -\sum_{i=0}^n P_I(i) \log_2 P_I(i) \\
-        &= -\sum_{i=0}^n \frac{\Omega_I(i) \Omega_D(l_i)}{\Omega_n(N)} \log_2 \left( \frac{\Omega_I(i) \Omega_D(l_i)}{\Omega_n(N)} \right) \\
-        &= -\frac{1}{\Omega_n(N)}\sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \left( \log_2 \Omega_I(i) + \log_2 \Omega_D(l_i) - \log_2 \Omega_n(N) \right) \\
-        &= -\frac{1}{\Omega_n(N)}\sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left(
-            \frac{I!}{i!(I-i)!} 
-        \right) - \frac{1}{\Omega_n(N)}\sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left(
-            \frac{D!}{(l_i)!(D-l_i)!}
-        \right) \\
-        &+ \frac{1}{\Omega_n(N)}\sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \Omega_n(N) \\\\
-        &= -\frac{1}{\Omega_n(N)}\sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \left[
-            \log_2 I! - \log_2 i! - \log_2 (I-i)!
-        \right]\\
-        &- \frac{1}{\Omega_n(N)}\sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right)\left[
-            \log_2 D! - \log_2 (l_i)! - \log_2 (D-l_i)!
-        \right]
-         + \log_2 \Omega_n(N) \\
+        S(P) &= -\sum_{(\omega,\rho) \in P} \rho \log \rho = -\sum_{i = 1}^{|\Omega|} P(\omega_i) \log P(\omega_i)\\
+        &= -\sum_{i = 1}^{|\Omega|} \rho_i \log \rho_i
+    \end{align*} 
+    \begin{enumerate}
+        \item $S(P) = S\left(\bigcup_{i=1}^n p_i\right) = \sum_{i=1}^n S(p_i)$
+        \item para $i\neq j$ $S(p_i \cup p_j) = S(p_i) + S(p_j)$
+    \end{enumerate}
+    Para un gas ideal de $n$ moleculas en un volumen $V$ particionado en $N$ celda $V_i$ con $i = 1,2,\dots,N$ y $V = \sum_{i=1}^N V_i$ entonces el cojunto de casos totales es 
+    \begin{align*}
+        \Omega = \{b_0b_1\dots b_N: b_i \in \{0,1\}\} = \{k: k = b_i 2^i \quad \text{con} \quad b_i \in \{0,1\}\}
+    \end{align*}
+    con:
+    $$
+     b_i = \begin{cases}
+        1 & \text{si la molecula esta en el celda } V_i\\
+        0 & \text{en otro caso}
+    \end{cases}
+    $$ 
+    Como solo hay $n$ moleculas es decir $n$-unos entonces $|\Omega| = \binom{N}{n}$ y como las cadenas de bits son iguales solo si representan el mismo estado entonces para todo entoces la probabilidad de cada estado es $P(\omega) = \frac{1}{|\Omega|}$ y por lo tanto 
+    tenemos el siguiente ensamble microcanonico:
+    \begin{align*} 
+    P = \left\{(\omega,\rho): \omega \in \Omega \quad \text{y} \quad \rho = \frac{1}{|\Omega|}\right\}
+    \end{align*}
+    Y definamos:
+    \begin{align*}
+        \Omega_I := \{b_0b_1\dots b_I0\dots 0: b_i \in \{0,1\}\} =  
     \end{align*}
     \begin{align*}
-        &=-\frac{1}{\Omega_n(N)}\sum_{i=0}^n\left[\left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left(I!\right) + \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left(i!\right) + \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left((I-i)!\right) \right]\\
-        &-\frac{1}{\Omega_n(N)}\sum_{i=0}^n\left[
-            \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left(D!\right) +  \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left((l_i)!\right) + \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left((D-l_i)!\right) 
-        \right] \\
-        &+ \log_2 \Omega_n(N) \\\\
-        &= -\frac{1}{\Omega_n(N)}\left[ \Omega_N(n) \log_2 \left(I!\right)- \sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left(i!\right)- \sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left((I-i)!\right) \right] \\
-        &-\frac{1}{\Omega_n(N)}\left[ \Omega_N(n) \log_2 \left(D!\right) - \sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left((l_i)!\right) - \sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left((D-l_i)!\right) \right] \\
-        &+ \log_2 \Omega_n(N) \\\\
+        \Omega_I := \{0\dots 0b_0b_1\dots b_D: b_i \in \{0,1\}\} =  
+    \end{align*}
+    \begin{align*}
+        P_I = \left\{(\omega,\rho): \omega \in \Omega_I \quad  \text{ y} \quad \rho = \frac{1}{|\Omega|}\right\}
     \end{align*}
 
 \end{answer}
-\begin{align*}
-    S_I(k) &= -P_I(k) \log_2 P_I(k) = -\frac{\Omega_I(k) \Omega_D(n-k)}{\Omega_n(N)} \log_2 \left( \frac{\Omega_I(k) \Omega_D(n-k)}{\Omega_n(N)} \right)\\
-    &= -\frac{\Omega_I(k) \Omega_D(n-k)}{\Omega_n(N)} \left( \log_2 \Omega_I(k) + \log_2 \Omega_D(n-k) - \log_2 \Omega_n(N) \right) \\
-    &= -\frac{\Omega_I(k) \Omega_D(n-k)}{\Omega_n(N)}  \left[
-        \log_2 \left( \frac{I!}{k!(I-k)!} \right) + \log_2 \left( \frac{D!}{n-k!(D-n-k)!} \right) - \log_2 \Omega_n(N)
-    \right] \\
-\end{align*}
