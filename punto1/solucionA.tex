@@ -1,0 +1,21 @@
+\begin{answer}[literal a]
+    Como el espacio de fase $6N$ dimensional dimensional, con $N$ el numero de particulas, se puede considerar como el producto cartesiano del espacio de configuraciones $3N$ dimensional
+    y el espacio de momentos $3N$ dimensional, lo cual implica que es valido considerar por separado el volumen espacio de configuraciones y el volumen del espacio de momentos, de fomra 
+    tal que el volumen total del espacio de fase es el producto de estos dos volumenes.\\
+    El volumen del espacio de configuraciones es el volumen de un $N$-cubo de lado $L^N$, es decir $V^N$. Esto es asi debido a que un gas ocupa todo el espacion que lo contiene y en el espacion 
+    de configuraciones por ejemplo para $1$ particula, tendremos que su volumen es $V$ por lo que para $N$ particulas el volumen sera $V^N$.\\
+    El volumen del espacio de momentos es el volumen de una $N$-esfera de radio $\sqrt{2mE}$ el cual corresponde a:
+    \begin{align*}
+        V_{momentos} &= \frac{\pi^{3N/2}}{\Gamma(3N/2 + 1)} (\sqrt{2mE})^{3N} \\
+        &= \frac{\pi^{3N/2}}{\Gamma(3N/2 + 1)} (2mE)^{3N/2} \\
+    \end{align*}
+    Pues los momentos de las particuals estan bajo la restriccion:
+    $$\sum_{i=1}^{3N} p_i^2 = \sqrt{2mE} \qquad (1.a.1)$$
+    con cada molecual teniendo $3$ grados de libertad.\\
+    De esta forma el volumen del espacio de fase para los estado con energia menor igual que $E$ es:
+    \begin{align*}
+        V_{T}=V_{configuraciones} V_{momentos} \\
+        &= V^N \frac{\pi^{3N/2}}{\Gamma(3N/2 + 1)} (2mE)^{3N/2} \\
+        &= V^N \frac{\pi^{3N/2}}{\Gamma(3N/2 + 1)} (2m)^{3N/2} E^{3N/2} \\
+    \end{align*}
+\end{answer}

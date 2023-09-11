@@ -1,0 +1,12 @@
+\begin{answer}
+    De lo anterior podemos notar que $P_I(k) = P_D(l)$ lo cual implica que $P_I(k) - P_D(l) = P_I(k) - P_D(n-l) = 0$ por lo tanto:
+    \begin{align*}
+        &\sum_{i=0}^{n} P_I(i) \log_2(P_I(i)) - \sum_{i=0}^{n} P_D(i) \log_2(P_D(i)) \\
+        &= \sum_{i=0}^{n} \left[
+            P_I(i) \log_2(P_I(i)) - P_D(n-i) \log_2(P_D(n-i)) 
+        \right] \\
+        &= \sum_{i=0}^{n} \left[
+            \frac{\Omega_I(i) \Omega_D(n-i)}{\Omega_I(n)} \log_2\left(\frac{\Omega_I(i) \Omega_D(n-i)}{\Omega_I(n)}\right) - \frac{\Omega_D(i) \Omega_I(n-i)}{\Omega_D(n)} \log_2\left(\frac{\Omega_D(i) \Omega_I(n-i)}{\Omega_D(n)}\right)
+            \right]
+    \end{align*}
+\end{answer}

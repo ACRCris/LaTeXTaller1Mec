@@ -1,0 +1,36 @@
+\begin{answer}[literal b]
+    Como nos interasan los estados del espacio de fase con energia entre $E$ y $E + dE$ y esta restriccion esta dada unicamente por volumen del espacio de los momentos, es necesario 
+    derivar el volumen de la $N$-esfera de radio $\sqrt{2mE}$ con respecto al radio que es la energia $E$, para de esta forma obtener los estados que se encuentran en la frontera de esta
+    $N$-esfera. Es proceso el similar al realizado para calcular la superficie de una esfera, el cual consiste en derivar su volumen, con respecto al radio. Por lo que:
+    \begin{align*}
+        \partial V_T &= \frac{dV_T}{dE}\\
+        &= V^N \frac{d}{dE}\left[
+            \frac{\pi^{3N/2}}{\Gamma(3N/2 + 1)} (2m)^{3N/2} E^{3N/2}
+        \right]\\
+        &= V^N \frac{\pi^{3N/2}}{\Gamma(3N/2 + 1)} (2m)^{3N/2} \frac{3N}{2} E^{(3N/2) - 1}\\
+    \end{align*}
+    Como cada grado de libertad tiene una minima energia proporcional a la constante de planck $h$ y como en el espacio de 
+    de fase, digamos para una particula el volumen corresponde $(J.s)^3$ entonces $h^{3N}$ representa el volumen de energia minimo que ocuparian las $3N$ particulas en el espacio de fase,
+    de esta manera si las particulas fueran distinguibles el numero de estados posibles en el espacio de fase seria:
+    \begin{align*}
+        \Sigma(E) &= \frac{1}{h^{3N}}\partial V_T dE= \frac{V^N}{h^{3N}} \frac{\pi^{3N/2}}{\Gamma(3N/2 + 1)} (2m)^{3N/2} \frac{3N}{2} E^{(3N/2) - 1}dE\\
+    \end{align*}
+    Pero dado que las particulas son indistinguibles, entonces es necesario dividir por la cantidad de permutacione, por lo que:
+    \begin{align*}
+        \Sigma(E) &= \frac{1}{h^{3N}N!}\partial V_T dE= \frac{V^N}{h^{3N}N!} \frac{\pi^{3N/2}}{\Gamma(3N/2 + 1)} (2m)^{3N/2} \frac{3N}{2} E^{(3N/2) - 1}dE\\
+    \end{align*}
+    donde:
+    \begin{align*}
+        g(E) = \frac{1}{h^{3N}N!}\partial V_T\\
+    \end{align*}
+    es la densidad del numero de estados.\\
+    Si $R = \sqrt{E}$ entonces numero de estados posibles en el espacio de fase con energia entre $0$ y $E$ es:
+
+    \begin{align*}
+        \Omega_{cascaron} &= g(E) \Delta E\\
+        &= \frac{1}{h^{3N}N!}\partial V_T \Delta E\\
+        &= \frac{V^N}{h^{3N}N!} \frac{\pi^{3N/2}}{\Gamma(3N/2 + 1)} (2m)^{3N/2} \frac{3N}{2} E^{(3N/2) - 1}\Delta E\\
+        &= \frac{3N}{2}\frac{V^N}{h^{3N}N!} \frac{(2m\pi)^{3N/2}}{\Gamma(3N/2) \frac{3N}{2}} R^{3N-2}  \Delta E\\
+        &= \frac{V^N}{h^{3N}N!} \frac{(2m\pi)^{3N/2}}{\Gamma(3N/2)} R^{3N-2}  \Delta E\\
+    \end{align*}
+\end{answer}    

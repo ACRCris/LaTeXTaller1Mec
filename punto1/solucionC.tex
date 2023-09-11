@@ -1,0 +1,24 @@
+Si fijamos $p_1$, es decir que $p_1$ es constante, entonces de la ecuación $(1.a.1)$ tenemos que
+\begin{answer}
+    \begin{align*}
+        \sum_{i=2}^{3N} = 2mE - p_1^2 = \sqrt{2mE - p_1^2}  \qquad (1.c.1)
+    \end{align*}
+    Lo que define una $3N - 1$ esfera de radio $\sqrt{2mE - p_1^2}$ en el espacio de momentos de $3N - 1$ dimensiones.\\
+    El volumen en espacio en espacio de las configuraciones continua siendo $V^N$ pues que el momento $p_1$ sea fijo no implica 
+    que la posicion $q_1$ sea fija.\\
+    De lo anterior tenemos que el volumen del espacio de fase es(dado que el hamiltoniano es separable):
+    \begin{align*}
+        V_{T} &= V^N \frac{\pi^{(3N-1)/2}}{\Gamma((3N-1)/2 + 1)} (2mE - p_1^2)^{(3N-1)/2} \\
+        &= V^N \frac{\pi^{(3N-1)/2}}{\Gamma((3N-1)/2 + 1)} (2m)^{(3N-1)/2} \left(E - \frac{p_1^2}{2m}\right)^{(3N-1)/2} \\
+    \end{align*}
+    Y de forma análoga al literal a) el numero de estados posibles con el energia menor o igual que $E - \frac{p_1^2}{2m}$ es:
+    \begin{align*}
+        g(E)dp &= \frac{1}{h^{3N}(N-1)!} \partial V_T \Delta E ~dp\\
+        &= \frac{1}{h^{3N}(N-1)!} V^N \frac{\pi^{(3N-1)/2}}{\Gamma\left(\frac{(3N-1)}2\right)} (2m)^{(3N-1)/2} \left(E - \frac{p_1^2}{2m}\right)^{(3N-1)/2 - 1} \Delta E ~dp\\
+    \end{align*}
+    Y si $R' = \sqrt{E - \frac{p_1^2}{2m}}$ entonces:
+    \begin{align*}
+        \Omega_{anillo} &= \frac{V^NR'^{3N-3}}{h^{3N}(N-1)!}  \frac{ (2m\pi)^{(3N-1)/2}}{\Gamma\left(\frac{(3N-1)}2\right)} \Delta E ~\Delta p\\
+    \end{align*}
+\end{answer}
+

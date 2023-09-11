@@ -1,0 +1,20 @@
+\begin{answer}
+    Haciendo uso de la aproximación $1-\epsilon \simeq \exp (-\epsilon)$, valida para $\epsilon \ll 1$, se tiene que:
+    \begin{align*}
+        P(p_1) &\approx \frac{\Gamma \left( \frac{3N-1}{2} \right) N}{\Gamma \left( \frac{3N}{2} - \frac 12\right) (2m\pi)^{\frac 12}}\frac{1}{R} \left[\exp \left( -\frac{p_1^2}{2mE} \right)\right]^{\frac{3N}{2}}\\
+        &= \frac{\Gamma \left( \frac{3N-1}{2} \right) N}{\Gamma \left( \frac{3N}{2} - \frac 12\right) (2m\pi)^{\frac 12}}\frac{1}{\sqrt{E}} \exp \left( -\frac{3Np_1^2}{4mE} \right)\\
+    \end{align*}
+    Y normalizando:
+    \begin{align*}
+        \int P(p_1) dp_1 &= \frac{\Gamma \left( \frac{3N-1}{2} \right) N}{\Gamma \left( \frac{3N}{2} - \frac 12\right) (2m\pi)^{\frac 12}}\frac{1}{\sqrt{E}} \int \exp \left( -\frac{3Np_1^2}{4mE} \right) dp_1\\
+        &= \frac{\Gamma \left( \frac{3N-1}{2} \right) N}{\Gamma \left( \frac{3N}{2} - \frac 12\right) (2m\pi)^{\frac 12}}\frac{1}{\sqrt{E}} \sqrt{\frac{4mE\pi}{3N}}\\
+        &= \frac{\Gamma \left( \frac{3N-1}{2} \right) }{\Gamma \left( \frac{3N}{2} - \frac 12\right) } \sqrt{\frac{2N}{3}}\\
+    \end{align*}
+    lo cual para estar normalizado debe ser igual a 1, por lo que, definifimos:
+    \begin{align*}
+        \rho(p_1) &= P(p_1) \frac{\Gamma \left( \frac{3N}{2} - \frac 12\right) }{\Gamma \left( \frac{3N-1}{2} \right) } \sqrt{\frac{3}{2N}}\\
+        &= \frac{\sqrt{3N}}{\sqrt{4\pi m E}} \exp \left( -\frac{3Np_1^2}{4mE} \right)\\
+        &= \frac{1}{\sqrt{2\pi} \sigma} \exp \left( -\frac{p_1^2}{2\sigma^2} \right)\\
+    \end{align*}
+    con $\sigma = \sqrt{\frac{2mE}{3N}}$.\\
+\end{answer}

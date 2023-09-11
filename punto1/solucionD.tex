@@ -1,0 +1,66 @@
+\begin{answer}
+    De los lierarles anteriores tenemos que la probabilidad de hallar una partícula con momentum $p_1$ entre $p_1$ y $p_1+dp_1$ es decir $\Delta p_1= dp_1$, es tal que:
+    \begin{align*}
+        P(p_1)dp &= \frac{\Omega_{anillo}}{\Omega_{cascaron}} \\
+        &= \frac{
+            \frac{\cancel{V^N}R'^{3N-3}}{\cancel{h^{3N}}(N-1)!}  \frac{ \cancel{(2m\pi)^{(3N-1)/2}}}{\Gamma\left(\frac{3N}2-\frac{1}2\right)}\cancel{\Delta E} ~dp
+        }{
+            \frac{\cancel{V^N}}{\cancel{h^{3N}}N!} \frac{(2m\pi)^{\cancel{3N/2}}}{\Gamma(3N/2)} R^{3N-2}  \cancel{\Delta E}
+        }\\\\
+        &=  \frac{
+            \frac{R'^{3N-3}}{\cancel{(N-1)!}}  \frac{1}{\Gamma\left(\frac{(3N-1)}2\right)} ~dp
+        }{
+            \frac{(2m\pi)^{1/2}R^{3N-2}}{\Gamma\left(\frac{3N}2\right)N\cancel{(N-1)!}} 
+        }\\\\
+        &= \frac{R'^{3N-3}\Gamma\left(\frac{3N}2\right)N}{\Gamma\left(\frac{3N}2-\frac{1}2\right)(2m\pi)^{1/2}R^{3N-2} }dp
+    \end{align*}
+    De lo cual concluimos que:
+    \begin{align*}
+        P(p_1)  \propto \frac{R'^{3N-3}}{R^{3N-2}} &= \frac{\left(E-\frac{p_1^2}{2m}\right)^{\frac {3N}2 - \frac 32}}{{E}^{\frac{3N}{2} - 1}}\\
+        &= \frac{E^{\frac {3N}2 -\frac 32}}{E^{\frac {3N}2 -1}}\left(1-\frac{p_1^2}{2mE}\right)^{\frac {3N}2 - \frac 32}\\
+        &= \frac{E^{\frac {3N}2} E^{-\frac 12} E^{-1}}{E^{\frac {3N}2} E^{-1}}\left(1-\frac{p_1^2}{2mE}\right)^{\frac {3N}2 - \frac 32}\\
+        &= \frac{1}{E^{\frac 12}}\left(
+            1-\frac{p_1^2}{2mE}
+        \right)^{\frac {3N}2 - \frac 32}\\
+        &= \frac{1}{R}\left(
+            1-\frac{p_1^2}{2mE}
+        \right)^{\frac {3N - 3}2} = \frac{1}{R}\left(
+            1-\frac{p_1^2}{2mE}
+            \right)^{\frac {3N}2 } \left(
+            1-\frac{p_1^2}{2mE}
+        \right)^{-\frac 32}\\
+        &= \frac{1}{R}\left(
+            1-\epsilon
+            \right)^{\frac {3N}2 } \left(
+            1-\epsilon
+        \right)^{-\frac 32} = \frac{1}{R}\left(
+            1-\epsilon
+            \right)^{\frac {3N}2} \frac{1}{\left(
+            1-\epsilon
+            \right)} \frac{1}{\sqrt{
+            1-\epsilon
+            }}
+    \end{align*}
+    Veamos que la en general la energia de ensamble completo es mucho mayor que la energia de una sola molecula de gas, es decir $E \gg \frac{p_1^2}{2m}$, por tanto:
+    \begin{align*}
+        \frac{1}{(1-\epsilon)} \approx 1 \qquad \text{y} \qquad \frac{1}{\sqrt{1-\epsilon}} \approx 1 \quad \Rightarrow\quad \frac{1}{(1-\epsilon)} \frac{1}{\sqrt{1-\epsilon}} \approx 1
+    \end{align*}
+    Por lo tanto:
+    \begin{align*}
+        P(p_1)  &\propto \frac{R^{3N-3}}{R^{3N-2}} \\
+        &= \frac{1}{R}\left(
+            1-\epsilon
+            \right)^{\frac {3N}2 } \frac{1}{\left(
+            1-\epsilon
+            \right)} \frac{1}{\sqrt{
+            1-\epsilon
+            }}\\
+        &\approx \frac{1}{R}\left(
+            1-\epsilon
+            \right)^{\frac {3N}2 } 
+    \end{align*}
+    Por lo que la probabilidad de hallar una partícula con momentum $p_1$ entre $p_1$ y $p_1+dp_1$ es apreciable solo cuando $p_1 \sim 0$.
+    Esto significa es muy como probable que una particual tenga la mayor parte de la energia del sistema.
+\end{answer}
+
+

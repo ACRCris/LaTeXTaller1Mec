@@ -1,0 +1,20 @@
+\begin{answer}
+    Dado un gas ideal de $n$ moléculas idénticas en una caja de $N$ celdas, donde cada celda puede tener a lo más una molécula 
+    el conjunto de todos los estados posibles $\Omega_N(n) := \{\text{toda las formas en la que podemos elegir N celdas para colocar n moléculas}\}$,
+    si enumeramos las $N$ celdas de $1,\dots,N$ como las moleculas son indistinguibles  entonces no importa que caja almacena que molécula y ningua puede ser seleccionada mas de una vez, entonces 
+    $\Omega_N(n) := \{T: T \subset \{1,2,\dots,N\}, |T| = n\}$, por lo tanto 
+    \begin{align*}
+        \Omega_N(n) := | \Omega_N(n) | = {N \choose n}
+    \end{align*}
+    y la cantidad estados favorables que consisten de todas las formas en las que podemos elegir $I$ celdas para colocar $k$ moléculas en la zona derecha y por lo tanto $D$ celdas para colocar $l$ es 
+    de forma analoga a los casos totales 
+    \begin{align*}
+        \Omega_D(k) := \Omega_I(l) := |\Omega_I(k)||\Omega_D(l)| = {I \choose k}{D \choose l}
+    \end{align*} 
+    por lo tanto la probabilidad de encontrar $k$ moleculas en la zona izquierda es:
+    \begin{align*}
+        P_I(k) &= \frac{\Omega_I(k) \Omega_D(l)}{\Omega_N(n)} = \frac{{I \choose k}{D \choose l}}{{N \choose n}}\\
+        &= \frac{{I \choose k}{N-I \choose n-k}}{{N \choose n}}\\
+    \end{align*}
+    Lo cual corresponde efectivamente a una distribución hipergeometrica de una poblacion de $N$ elementos, donde $I$ son los elementos de la poblacion que son exitos de una muestra de $n$ elementos sin reemplazo. 
+\end{answer}
