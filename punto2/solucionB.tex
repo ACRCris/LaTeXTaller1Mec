@@ -24,21 +24,33 @@
         1 & \text{si la molecula esta en el celda } V_i\\
         0 & \text{en otro caso}
     \end{cases}
-    $$ 
-    Como solo hay $n$ moleculas es decir $n$-unos entonces $|\Omega| = \binom{N}{n}$ y como las cadenas de bits son iguales solo si representan el mismo estado entonces para todo entoces la probabilidad de cada estado es $P(\omega) = \frac{1}{|\Omega|}$ y por lo tanto 
-    tenemos el siguiente ensamble microcanonico:
-    \begin{align*} 
-    P = \left\{(\omega,\rho): \omega \in \Omega \quad \text{y} \quad \rho = \frac{1}{|\Omega|}\right\}
-    \end{align*}
-    Y definamos:
+    $$
+    Si dividimos le cadena de bits en los primeros $I$ bits con $k$ unos y los ultimos $D = N - I$ bits con $l= n-k$ entoces el numero de formas en las que puedo colocar los $k$ unos en los primeros $I$ bits es:
     \begin{align*}
-        \Omega_I := \{b_0b_1\dots b_I0\dots 0: b_i \in \{0,1\}\} =  
+        |\Omega_I(K)|= \binom{I}{k} = \frac{I!}{k!(I-k)!}
     \end{align*}
+    donde:
     \begin{align*}
-        \Omega_I := \{0\dots 0b_0b_1\dots b_D: b_i \in \{0,1\}\} =  
+        \Omega_I(K) &= \{b_0b_1 \dots b_Ic_{I+1}c_{I+2}\dots c_N: b_i \in \{0,1\} \quad \text{y} \quad c_i \in \{0,1\} \text{ fijos}\}\\
+        \Omega_I(K) &= \{d_0d_1\dots d_Ib_{I+1}b_{I+2}\dots b_N: b_i \in \{0,1\} \quad \text{y} \quad d_i \in \{0,1\} \text{ fijos}\}\\
     \end{align*}
+    entonces el ensamble microcanonico es para $\Omega_I(K)$:
     \begin{align*}
-        P_I = \left\{(\omega,\rho): \omega \in \Omega_I \quad  \text{ y} \quad \rho = \frac{1}{|\Omega|}\right\}
+        P_I := \left\{ \left(\omega, \rho \right): \omega \in \Omega_I(K)  \quad \text{y} \quad = \frac{1}{|\Omega_I(K)|}\right\}
     \end{align*}
-
+    De la forma analoga definimos el ensamble microcanonico para $\Omega_D(L)$:
+    \begin{align*}
+        P_D := \left\{ \left(\omega, \rho \right): \omega \in \Omega_D(L)  \quad \text{y} \quad = \frac{1}{|\Omega_D(L)|}\right\} - \{d_0d_1\dots d_Ic_{I+1}c_{I+2}\dots c_N\}
+    \end{align*}
+    Veamos que $P_I \cap P_D = \emptyset$ y $P_I \cup P_D = P$ entonces
+    \begin{align*}
+        S(P) &= S(P_I \cup P_D) = S(P_I) + S(P_D)\\
+        &= S(P_I) + S(P_D)\\
+        &= \log |\Omega_I(K)| + \log |\Omega_D(L)|\\
+        &= \log \binom{I}{k} + \log \binom{D}{l}\\
+        &= \log \frac{I!}{k!(I-k)!} + \log \frac{D!}{l!(D-l)!}\\
+        &= \log \frac{I!D!}{k!(I-k)!l!(D-l)!}\\
+        &= \log \frac{N!}{k!l!(N-k)!(N-l)!}\\
+        &= \log \binom{N}{k}
+    \end{align*}a
 \end{answer}
