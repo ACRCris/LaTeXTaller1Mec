@@ -1,12 +1,47 @@
 \begin{answer}
-    De lo anterior podemos notar que $P_I(k) = P_D(l)$ lo cual implica que $P_I(k) - P_D(l) = P_I(k) - P_D(n-l) = 0$ por lo tanto:
+    En ensamble estadistico esta dado por las probabilidades $P_I(i)$ con $i=1,2,\dots, n$. Pues
     \begin{align*}
-        &\sum_{i=0}^{n} P_I(i) \log_2(P_I(i)) - \sum_{i=0}^{n} P_D(i) \log_2(P_D(i)) \\
-        &= \sum_{i=0}^{n} \left[
-            P_I(i) \log_2(P_I(i)) - P_D(n-i) \log_2(P_D(n-i)) 
-        \right] \\
-        &= \sum_{i=0}^{n} \left[
-            \frac{\Omega_I(i) \Omega_D(n-i)}{\Omega_I(n)} \log_2\left(\frac{\Omega_I(i) \Omega_D(n-i)}{\Omega_I(n)}\right) - \frac{\Omega_D(i) \Omega_I(n-i)}{\Omega_D(n)} \log_2\left(\frac{\Omega_D(i) \Omega_I(n-i)}{\Omega_D(n)}\right)
-            \right]
+        \sum_{i=0}^n P_I(i) &= \sum_{i=0}^n \frac{\Omega_I(i) \Omega_D(l_i)}{\Omega_n(N)} \\
+        &= \frac{1}{\Omega_n(N)} \sum_{i=0}^n \Omega_I(i) \Omega_D(l_i) \\
+        &= \frac{1}{\Omega_n(N)} \sum_{i=0}^n {I \choose i} {N-I \choose l_i} \\
+        &= \frac{1}{\Omega_n(N)} {N \choose n} \quad \text{Chu-Vandermonde identity} \\
+        &= 1
     \end{align*}
+    Por lo tanto, la entropia del sistema es:
+    \begin{align*}
+        S &= -\sum_{i=0}^n P_I(i) \log_2 P_I(i) \\
+        &= -\sum_{i=0}^n \frac{\Omega_I(i) \Omega_D(l_i)}{\Omega_n(N)} \log_2 \left( \frac{\Omega_I(i) \Omega_D(l_i)}{\Omega_n(N)} \right) \\
+        &= -\frac{1}{\Omega_n(N)}\sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \left( \log_2 \Omega_I(i) + \log_2 \Omega_D(l_i) - \log_2 \Omega_n(N) \right) \\
+        &= -\frac{1}{\Omega_n(N)}\sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left(
+            \frac{I!}{i!(I-i)!} 
+        \right) - \frac{1}{\Omega_n(N)}\sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left(
+            \frac{D!}{(l_i)!(D-l_i)!}
+        \right) \\
+        &+ \frac{1}{\Omega_n(N)}\sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \Omega_n(N) \\\\
+        &= -\frac{1}{\Omega_n(N)}\sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \left[
+            \log_2 I! - \log_2 i! - \log_2 (I-i)!
+        \right]\\
+        &- \frac{1}{\Omega_n(N)}\sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right)\left[
+            \log_2 D! - \log_2 (l_i)! - \log_2 (D-l_i)!
+        \right]
+         + \log_2 \Omega_n(N) \\
+    \end{align*}
+    \begin{align*}
+        &=-\frac{1}{\Omega_n(N)}\sum_{i=0}^n\left[\left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left(I!\right) + \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left(i!\right) + \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left((I-i)!\right) \right]\\
+        &-\frac{1}{\Omega_n(N)}\sum_{i=0}^n\left[
+            \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left(D!\right) +  \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left((l_i)!\right) + \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left((D-l_i)!\right) 
+        \right] \\
+        &+ \log_2 \Omega_n(N) \\\\
+        &= -\frac{1}{\Omega_n(N)}\left[ \Omega_N(n) \log_2 \left(I!\right)- \sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left(i!\right)- \sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left((I-i)!\right) \right] \\
+        &-\frac{1}{\Omega_n(N)}\left[ \Omega_N(n) \log_2 \left(D!\right) - \sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left((l_i)!\right) - \sum_{i=0}^n \left(\Omega_I(i) \Omega_D(l_i)\right) \log_2 \left((D-l_i)!\right) \right] \\
+        &+ \log_2 \Omega_n(N) \\\\
+    \end{align*}
+
 \end{answer}
+\begin{align*}
+    S_I(k) &= -P_I(k) \log_2 P_I(k) = -\frac{\Omega_I(k) \Omega_D(n-k)}{\Omega_n(N)} \log_2 \left( \frac{\Omega_I(k) \Omega_D(n-k)}{\Omega_n(N)} \right)\\
+    &= -\frac{\Omega_I(k) \Omega_D(n-k)}{\Omega_n(N)} \left( \log_2 \Omega_I(k) + \log_2 \Omega_D(n-k) - \log_2 \Omega_n(N) \right) \\
+    &= -\frac{\Omega_I(k) \Omega_D(n-k)}{\Omega_n(N)}  \left[
+        \log_2 \left( \frac{I!}{k!(I-k)!} \right) + \log_2 \left( \frac{D!}{n-k!(D-n-k)!} \right) - \log_2 \Omega_n(N)
+    \right] \\
+\end{align*}
