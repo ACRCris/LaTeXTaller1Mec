@@ -1,0 +1,16 @@
+\begin{answer}
+    Dada la probabilidad de encontrar $2m$ mas en la mitad derecha que en la izquierda es:
+    \begin{align*}
+        P_m &=\frac{1}{2^{2 N}}{2 N \choose N+m}\\
+        &=\frac{1}{2^{2 N}} \frac{(2 N) !}{(N+m) !(N-m) !}\\
+    \end{align*}
+    Y usando la aproximacion de Stirling $n ! \simeq(n / e)^n \sqrt{2 \pi n} \sim(n / e)^n \sim (n / e)^n$ para deducir que:
+    \begin{align*}
+        P_m &\sim \frac{1}{2^{2 N}} \frac{\left(\frac{2 N}{e}\right)^{2 N} }{\left(\frac{N+m}{e}\right)^{N+m} \left(\frac{N-m}{e}\right)^{N-m}}\\
+        &= \frac{1}{2^{2 N}} \frac{\left(2 N\right)^{2 N}}{\left(N+m\right)^{N+m} \left(N-m\right)^{N+m - 2m}}\\
+        &= \frac{1}{2^{2 N}} \frac{\left(2 N\right)^{2 N}}{\left[\left(N+m\right)\left(N-m\right)\right]^{N+m} \left(N-m\right)^{- 2m} }\\
+        &= \frac{1}{2^{2 N}} \frac{\left(2 N\right)^{2 N}}{\left(N^2-m^2\right)^{N} \left[(N - m)(N+m)\right]^m \left(N-m\right)^{- 2m}}\\
+        &\sim (N^2 - m^2)^{-N} (N + m)^{-m} (N - m)^m\\
+        &\sim \left[1 - \left(\frac{m}{N}\right)^2\right]^{-N} \left(1 + \frac{m}{N}\right)^{-m} \left(1 - \frac{m}{N}\right)^m\\
+    \end{align*}
+\end{answer}

@@ -1,0 +1,49 @@
+\begin{answer}
+    $$
+         \frac{I!(N-I)!n!(N-n)!}{(k + \epsilon)!(I - (k+\epsilon))!(n - k-\epsilon)!((N-I) - n + k+\epsilon)!N!} \\
+        $$
+        tenemos que:
+        \begin{align*}
+            &\ln \left[
+            \frac{I!(N-I)!n!(N-n)!}{(k + \epsilon)!(I - (k+\epsilon))!(n - k-\epsilon)!((N-I) - n + k+\epsilon)!N!}
+            \right] \\
+            &= \ln \left[I! (N-I)! n! (N-n)! \right] - \ln \left[(k + \epsilon)! (I - (k+\epsilon))! (n - k-\epsilon)! ((N-I) - n + k+\epsilon)! N! \right] \\
+            &= \ln \left(I!\right) + \ln \left((N-I)!\right) + \ln \left(n!\right) + \ln \left((N-n)!\right) \\
+            &- \ln \left((k + \epsilon)!\right) - \ln \left((I - (k+\epsilon))!\right) - \ln \left((n - k-\epsilon)!\right) - \ln \left(((N-I) - n + k+\epsilon)!\right) - \ln \left(N!\right)  \\
+        \end{align*}
+        Y a esto ultimo aplicando la aproximacion de Stirling:
+        \begin{align*}
+            &\ln \left[
+            \frac{I!(N-I)!n!(N-n)!}{(k + \epsilon)!(I - (k+\epsilon))!(n - k-\epsilon)!((N-I) - n + k+\epsilon)!N!}
+            \right] \\
+            &= I \ln \left(I\right) - \cancel I + ( N-I) \ln \left(N-I\right) - (\cancel N-\cancel I) + n \ln \left(n\right) - \cancel n + (N-n) \ln \left(N-n\right) - (N-\cancel n) \\
+            &- (k + \epsilon) \ln \left(k + \epsilon\right) + (k + \epsilon) - (I - (k+\epsilon)) \ln \left(I - (k+\epsilon)\right) + (I - (k+\epsilon)) \\
+            &- (n - k-\epsilon) \ln \left(n - k-\epsilon\right) + (n - k-\epsilon) - ((N-I) - n + k+\epsilon) \ln \left((N-I) - n + k+\epsilon\right) \\
+            &+ ((N-I) - n + k+\epsilon) - N \ln \left(N\right) +\cancel N \\
+            &= I \ln \left(I\right)  + ( N-I) \ln \left(N-I\right) + n \ln \left(n\right)  + (N-n) \ln \left(N-n\right) - \cancel N \\
+            &- (k + \epsilon) \ln \left(k + \epsilon\right) + \cancel{(k + \epsilon)} - (I - (k+\epsilon)) \ln \left(I - (k+\epsilon)\right) + (I - \cancel{(k+\epsilon)}) \\
+            &- (n - k-\epsilon) \ln \left(n - k-\epsilon\right) + \cancel{(n - k-\epsilon)} - ((N-I) - n + k+\epsilon) \ln \left((N-I) - (n - k-\epsilon)\right) \\
+            &+ ((\cancel N-I) -\cancel{(n - k-\epsilon)}) - N \ln \left(N\right)  \\
+            &= I \ln \left(I\right)  + ( N-I) \ln \left(N-I\right) + n \ln \left(n\right)  + (N-n) \ln \left(N-n\right)\\
+            &- (k + \epsilon) \ln \left(k + \epsilon\right)  - (I - (k+\epsilon)) \ln \left(I - (k+\epsilon)\right)  \\
+            &- (n - k-\epsilon) \ln \left(n - k-\epsilon\right) - ((N-I) - n + k+\epsilon) \ln \left((N-I) - (n - k-\epsilon)\right) \\
+            & - N \ln \left(N\right) \\
+        \end{align*}
+        \begin{align*}
+            &= I \ln \left(I\right)  + N\ln \left(N-I\right)-I\ln \left(N-I\right) + n \ln \left(n\right)  + N\ln \left(N-n\right)-n\ln \left(N-n\right)\\
+            &- k \ln \left(k + \epsilon\right) - \epsilon \ln \left(k + \epsilon\right)  - I \ln \left(I - (k+\epsilon)\right) + k\ln \left(I - (k+\epsilon)\right)  + \epsilon \ln \left(I - (k+\epsilon)\right)  \\
+            &- n \ln \left(n - k-\epsilon\right) + k \ln \left(n - k-\epsilon\right) + \epsilon \ln \left(n - k-\epsilon\right) \\
+            &- N \ln \left((N-I)\right) -I \ln \left((N-I) - (n - k-\epsilon)\right) - n \ln \left((N-I) - (n - k-\epsilon)\right) \\
+            &+ k \ln \left((N-I) - (n - k-\epsilon)\right) + \epsilon \ln \left((N-I) - (n - k-\epsilon)\right) \\
+            & - N \ln \left(N\right) \\
+            &= I\left[
+                \ln \left(I\right)  - \ln \left(N-I\right) - \ln \left(I - (k+\epsilon)\right) + \ln \left((N-I) - (n - k-\epsilon)\right)
+            \right]\\
+            &+ N\left[
+                \ln \left(N-I\right) - \ln \left(N\right)
+            \right]\\
+            &+ n\left[
+                \ln \left(n\right)  - \ln \left(N-n\right) - \ln \left(n - k-\epsilon\right) + \ln \left((N-I) - (n - k-\epsilon)\right)
+            \right]\\
+        \end{align*}
+\end{answer}

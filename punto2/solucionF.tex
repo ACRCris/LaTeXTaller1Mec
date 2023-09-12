@@ -1,0 +1,16 @@
+Haciendo uso de la aproximacion de $1-\epsilon \simeq \exp (-\epsilon)$, la cual es valida debido a que $N>> m$, se tiene que:
+
+\begin{align*}
+    P_{m / N} &\sim \left[1-\left(\frac{m}{N}\right)^{2}\right]^{-N}\left(1+\frac{m}{N}\right)^{-m}\left(1-\frac{m}{N}\right)^{m} \\
+    &=\left[\exp \left(-\left(\frac{m}{N}\right)^{2}\right)\right]^{-N}\left(\exp \left(\frac{m}{N}\right)\right)^{-m}\left(\exp \left(-\frac{m}{N}\right)\right)^{m} \\
+    &=\exp \left(N\left(\frac{m}{N}\right)^{2}\right) \exp \left(-m\left(\frac{m}{N}\right)\right) \exp \left(-m\left(\frac{m}{N}\right)\right) \\
+    &=\exp \left(-\frac{2m^{2}}{N}\right) \exp \left(-\frac{m^{2}}{N}\right) \\
+    &=\exp \left(-\frac{m^{2}}{N}\right) \\
+\end{align*}     
+
+Por lo que normalizando:
+\begin{align*}
+     P_{m/N} &=  \frac{\sqrt{2 N}}{\sqrt{2 \pi}} \exp \left(-\frac{ m^{2}}{N}\right)\\ 
+    &= \frac{\sqrt{2 N}}{\sqrt{2 \pi}}  \exp \left(-\frac{ 2Nm^{2}}{2N^2}\right)\\
+    &= \frac{1}{\sigma \sqrt{2 \pi}} \exp \left(-\frac{ (m/N)^2}{2\sigma^2}\right)\\
+\end{align*}

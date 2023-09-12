@@ -1,0 +1,66 @@
+\begin{answer}
+    Si asumimos $\left(\frac{\partial S}{\partial L}\right)_E = \frac{d}{dL}(S(D))$ entonces de la regla de la cadena:
+    \begin{align*}
+        \frac{d}{dL}S(D) = \frac{d}{dD}\frac{dD}{dL}S(D)
+    \end{align*}
+    y como ya provamos que:
+    \begin{align*}
+        D = \frac{N + L_0}{2} = \frac{Nd + L}{2d} \quad &\Rightarrow \quad \frac{dD}{dL} = \frac{1}{2d}\\
+        &\Rightarrow \quad \frac{d}{dL}S(D) = \frac{1}{2d}\frac{d}{dD}S(D)
+    \end{align*}
+    y como ademas sabemos que:
+    \begin{align*}
+        &S(D) = k_B \ln \Omega(D) = k_B \left[
+            N \ln \frac{N}{N-D} + D \ln \frac{N-D}{D}
+        \right] \quad\\
+        &\Rightarrow \quad \frac{d}{dD}S(D) = k_B \frac{d}{dD}\left[
+            N \ln N - N \ln ({N-D}) + D \ln ({N-D}) - D\ln D
+        \right]\\
+        &\Rightarrow \quad \frac{d}{dD}S(D) = k_B \left[
+            -N \frac{d}{dD}\ln ({N-D}) + D \frac{d}{dD}\ln ({N-D}) + \ln ({N-D})\frac{d}{dD}D  - \frac{d}{dD}\left(D\ln D\right)
+        \right]\\
+        &\Rightarrow \quad \frac{d}{dD}S(D) = k_B \left[
+            N \frac{1}{N-D} - D \frac{1}{N-D} + \ln(N-D) - \ln D - 1
+        \right]\\
+        &\Rightarrow \quad \frac{d}{dD}S(D) = k_B \left[
+            \frac{N-D}{N-D} + \ln(N-D) - \ln D - 1
+        \right]\\
+        &\Rightarrow \quad \frac{d}{dD}S(D) = k_B \left[
+            1 + \ln(N-D) - \ln D - 1
+        \right]\\
+        &\Rightarrow \quad \frac{d}{dD}S(D) = k_B \left[
+            \ln(N-D) - \ln D
+        \right]\\
+        &\Rightarrow \quad \frac{d}{dD}S(D) = k_B \left[
+            \ln\left(\frac{N-D}{D}\right)
+        \right]\\
+    \end{align*}
+    por tanto:
+    \begin{align*}
+        F = -T \left(
+            \frac{\partial S}{\partial L}
+        \right)_E &= -T \left(
+            \frac{1}{2d}\frac{d}{dD}S(D)
+        \right) = -T \left(
+            \frac{1}{2d}k_B \left[
+                \ln\left(\frac{N-D}{D}\right)
+            \right]
+        \right)\\ &= -\frac{k_B T}{2d} \left(
+            \ln\left(\frac{N-D}{D}\right)
+        \right)
+    \end{align*}
+    Y como $D = \frac{N + L_0}{2}$ entonces:
+    \begin{align*}
+        F &= -\frac{k_B T}{2d} \left(
+            \ln\left(\frac{N-\frac{N + L_0}{2}}{\frac{N + L_0}{2}}\right)
+        \right) = -\frac{k_B T}{2d} \left(
+            \ln\left(\frac{N-\frac{N}{2} - \frac{L_0}{2}}{\frac{N}{2} + \frac{L_0}{2}}\right)
+        \right)\\
+        &= -\frac{k_B T}{2d} \left(
+            \ln\left(\frac{N - L_0}{N + L_0}\right)
+        \right)\\
+        &= -\frac{k_B T}{2d} \left(
+            \ln\left(\frac{N - L/d}{N + L/d}\right)
+        \right)\\
+    \end{align*}
+\end{answer}

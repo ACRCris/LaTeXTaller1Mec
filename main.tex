@@ -64,77 +64,27 @@
     \input{punto2/b.tex}
     \input{punto2/solucionB.tex}
     \input{punto2/c.tex}
+    \input{punto2/solucionC.tex}
     \input{punto2/d.tex}
+    \input{punto2/solucionD.tex}
+    \input{punto2/intro2.tex}\\
+    \input{punto2/e.tex}
+    \input{punto2/solucionE.tex}
+    \input{punto3/intro.tex}
+    \input{punto3/a.tex}
+    \input{punto3/SolucionA.tex}
+    \input{punto3/b.tex}
+    \input{punto3/SolucionB.tex}
+    \input{punto3/c.tex}
+    \input{punto3/SolucionC.tex}
+    \input{punto3/d.tex}
+    \input{punto3/SolucionD.tex}
+    \input{punto3/e.tex}
+    \input{punto3/SolucionE.tex}
 
-    \begin{answer}[punto ]
-        Dado que $$P_I(k) = \frac{\Omega_I(k) \Omega_D(n-k)}{\Omega_I(n)}$$
-        entonces:
-        \begin{align*}
-            P_I(k + \epsilon) &= \frac{\Omega_I(k) \Omega_D(n-k)}{\Omega_I(n)} \\
-            &= \frac{{I \choose k} {D \choose n - k}}{{N \choose n}} \\
-            &= \frac{\frac{I!}{(k)!(I - k)!} \frac{D!}{(n - k)!(D - n + k)!}}{\frac {N!}{n!(N - n)!}} \\
-            &= \frac{\frac{I!}{(k)!(I - k)!} \frac{(N-I)!}{(n - k)!(D - n + k)!}}{\frac {N!}{n!(N - n)!}} \\
-            &= \frac{I!(N-I)!n!(N-n)!}{(k)!(I - k)!(n - k)!(D - n + k)!N!} \\
-            &= \frac{n!(N-n)!}{(k)!(I - k)!(n - k)!((N-I) - n + k)!}\frac{1}{{N \choose I}} \\
-            &= \frac{(N-n)!}{(I - k)!((N-I) - n + k)!}\frac{{n \choose k}}{{N \choose I}} \\
-            &= \frac{(N-n)!}{(I - k)!((N-n) - (I - k))!}\frac{{n \choose k}}{{N \choose I}} \\
-            &= {N-n \choose I - k}\frac{{n \choose k}}{{N \choose I}} \\
-        \end{align*}
-        Aplicando la aproximacion de logaritmo natural a:
-        $$
-         \frac{I!(N-I)!n!(N-n)!}{(k + \epsilon)!(I - (k+\epsilon))!(n - k-\epsilon)!((N-I) - n + k+\epsilon)!N!} \\
-        $$
-        tenemos que:
-        \begin{align*}
-            &\ln \left[
-            \frac{I!(N-I)!n!(N-n)!}{(k + \epsilon)!(I - (k+\epsilon))!(n - k-\epsilon)!((N-I) - n + k+\epsilon)!N!}
-            \right] \\
-            &= \ln \left[I! (N-I)! n! (N-n)! \right] - \ln \left[(k + \epsilon)! (I - (k+\epsilon))! (n - k-\epsilon)! ((N-I) - n + k+\epsilon)! N! \right] \\
-            &= \ln \left(I!\right) + \ln \left((N-I)!\right) + \ln \left(n!\right) + \ln \left((N-n)!\right) \\
-            &- \ln \left((k + \epsilon)!\right) - \ln \left((I - (k+\epsilon))!\right) - \ln \left((n - k-\epsilon)!\right) - \ln \left(((N-I) - n + k+\epsilon)!\right) - \ln \left(N!\right)  \\
-        \end{align*}
-        Y a esto ultimo aplicando la aproximacion de Stirling:
-        \begin{align*}
-            &\ln \left[
-            \frac{I!(N-I)!n!(N-n)!}{(k + \epsilon)!(I - (k+\epsilon))!(n - k-\epsilon)!((N-I) - n + k+\epsilon)!N!}
-            \right] \\
-            &= I \ln \left(I\right) - \cancel I + ( N-I) \ln \left(N-I\right) - (\cancel N-\cancel I) + n \ln \left(n\right) - \cancel n + (N-n) \ln \left(N-n\right) - (N-\cancel n) \\
-            &- (k + \epsilon) \ln \left(k + \epsilon\right) + (k + \epsilon) - (I - (k+\epsilon)) \ln \left(I - (k+\epsilon)\right) + (I - (k+\epsilon)) \\
-            &- (n - k-\epsilon) \ln \left(n - k-\epsilon\right) + (n - k-\epsilon) - ((N-I) - n + k+\epsilon) \ln \left((N-I) - n + k+\epsilon\right) \\
-            &+ ((N-I) - n + k+\epsilon) - N \ln \left(N\right) +\cancel N \\
-            &= I \ln \left(I\right)  + ( N-I) \ln \left(N-I\right) + n \ln \left(n\right)  + (N-n) \ln \left(N-n\right) - \cancel N \\
-            &- (k + \epsilon) \ln \left(k + \epsilon\right) + \cancel{(k + \epsilon)} - (I - (k+\epsilon)) \ln \left(I - (k+\epsilon)\right) + (I - \cancel{(k+\epsilon)}) \\
-            &- (n - k-\epsilon) \ln \left(n - k-\epsilon\right) + \cancel{(n - k-\epsilon)} - ((N-I) - n + k+\epsilon) \ln \left((N-I) - (n - k-\epsilon)\right) \\
-            &+ ((\cancel N-I) -\cancel{(n - k-\epsilon)}) - N \ln \left(N\right)  \\
-            &= I \ln \left(I\right)  + ( N-I) \ln \left(N-I\right) + n \ln \left(n\right)  + (N-n) \ln \left(N-n\right)\\
-            &- (k + \epsilon) \ln \left(k + \epsilon\right)  - (I - (k+\epsilon)) \ln \left(I - (k+\epsilon)\right)  \\
-            &- (n - k-\epsilon) \ln \left(n - k-\epsilon\right) - ((N-I) - n + k+\epsilon) \ln \left((N-I) - (n - k-\epsilon)\right) \\
-            & - N \ln \left(N\right) \\
-        \end{align*}
-        \begin{align*}
-            &= I \ln \left(I\right)  + N\ln \left(N-I\right)-I\ln \left(N-I\right) + n \ln \left(n\right)  + N\ln \left(N-n\right)-n\ln \left(N-n\right)\\
-            &- k \ln \left(k + \epsilon\right) - \epsilon \ln \left(k + \epsilon\right)  - I \ln \left(I - (k+\epsilon)\right) + k\ln \left(I - (k+\epsilon)\right)  + \epsilon \ln \left(I - (k+\epsilon)\right)  \\
-            &- n \ln \left(n - k-\epsilon\right) + k \ln \left(n - k-\epsilon\right) + \epsilon \ln \left(n - k-\epsilon\right) \\
-            &- N \ln \left((N-I)\right) -I \ln \left((N-I) - (n - k-\epsilon)\right) - n \ln \left((N-I) - (n - k-\epsilon)\right) \\
-            &+ k \ln \left((N-I) - (n - k-\epsilon)\right) + \epsilon \ln \left((N-I) - (n - k-\epsilon)\right) \\
-            & - N \ln \left(N\right) \\
-            &= I\left[
-                \ln \left(I\right)  - \ln \left(N-I\right) - \ln \left(I - (k+\epsilon)\right) + \ln \left((N-I) - (n - k-\epsilon)\right)
-            \right]\\
-            &+ N\left[
-                \ln \left(N-I\right) - \ln \left(N\right)
-            \right]\\
-            &+ n\left[
-                \ln \left(n\right)  - \ln \left(N-n\right) - \ln \left(n - k-\epsilon\right) + \ln \left((N-I) - (n - k-\epsilon)\right)
-            \right]\\
-        \end{align*}
-        entonces
-        \begin{align*}
-            &\frac{I!(N-I)!n!(N-n)!}{(k + \epsilon)!(I - (k+\epsilon))!(n - k-\epsilon)!((N-I) - n + k+\epsilon)!N!}\\ 
-            &=\frac{\sqrt{2\pi I}(\frac{I}{e})^I\sqrt{2\pi (N-I)}(\frac{N-I}{e})^{N-I}\sqrt{2\pi n}(\frac{n}{e})^n\sqrt{2\pi (N-n)}(\frac{N-n}{e})^{N-n}}{\sqrt{2\pi (k + \epsilon)}(\frac{k + \epsilon}{e})^{k + \epsilon}\sqrt{2\pi (I - (k+\epsilon))}(\frac{I - (k+\epsilon)}{e})^{I - (k+\epsilon)}} \\
-            &\frac{1}{\sqrt{2\pi (n - k-\epsilon)}(\frac{n - k-\epsilon}{e})^{n - k-\epsilon}\sqrt{2\pi ((N-I) - n + k+\epsilon)}(\frac{(N-I) - n + k+\epsilon}{e})^{(N-I) - n + k+\epsilon}\sqrt{2\pi N}(\frac{N}{e})^N}
-        \end{align*}     
-    \end{answer}
+
+
+    
     $$
     P(x, p)=\frac{2 \pi}{\beta \omega} e^{-\beta\left[\frac{p^2}{2 m}+\frac{1}{2} k x^2\right]},\qquad  \operatorname{con} \beta=\frac{1}{k_B T} \qquad \mathrm{y} \qquad \omega=\sqrt{\frac{k}{m}}
     $$

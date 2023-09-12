@@ -1,0 +1,36 @@
+\begin{answer}
+    Si $S(E,L)$ es la entropia del sistema, entonces por la regla de la cadena:
+    \begin{align*}
+        d S &= \frac{\partial S}{\partial E} d E + \frac{\partial S}{\partial L} d L\\
+    \end{align*}
+    Ademas si la primera ley de la termodinamica es para el resorte es:
+    \begin{align*}
+        d E &= TdS + F d L
+    \end{align*}
+    entonces reemplazando esta ecuacion en la primera anterior:
+    \begin{align*}
+        d S &= \frac{\partial S}{\partial E} \left( TdS + F d L \right) + \frac{\partial S}{\partial L} d L\\
+        &= \frac{\partial S}{\partial E} TdS + \frac{\partial S}{\partial E} F d L+ \frac{\partial S}{\partial L} d L\\
+        &= \frac{\partial S}{\partial E} TdS + \left[
+            \frac{\partial S}{\partial E} F + \frac{\partial S}{\partial L}
+        \right] d L\\
+    \end{align*}
+    entonces:
+    \begin{align*}
+        \left(\frac{\partial S}{\partial L}\right)_{E} = T \left(\frac{\partial S}{\partial E}\right)_{L} \left(
+            \frac{\partial S}{\partial L}
+        \right)_E + \left[
+            \frac{\partial S}{\partial E} F + \frac{\partial S}{\partial L}
+        \right] &\quad \Rightarrow \quad  0 = T \left(\frac{\partial S}{\partial E}\right)_{L} \left(
+            \frac{\partial S}{\partial L}
+        \right)_E + 
+            \left(\frac{\partial S}{\partial E}\right)_L F\\
+        &\quad \Rightarrow \quad  -T \left(\frac{\partial S}{\partial E}\right)_{L} \left(
+            \frac{\partial S}{\partial L}
+        \right)_E =
+            \left(\frac{\partial S}{\partial E}\right)_L F\\
+        &\quad \Rightarrow \quad  F = -T \left(
+            \frac{\partial S}{\partial L}
+        \right)_E
+    \end{align*}
+\end{answer}

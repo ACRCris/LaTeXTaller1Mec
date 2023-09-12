@@ -1,0 +1,36 @@
+\begin{answer}
+    De la ecuacion demostrada en el punto anterio tenemos que la entropia total $S(k) = S_l(k) + S_D(l)$ es maxima cuando:
+    \begin{align*}
+        \frac{d S_l(k)}{d k} = \frac{d S_D(l)} {d l} &\quad \Rightarrow \quad \frac{d}{d k} \left( \ln \Omega_I(k) \right) = \frac{d}{d l} \left( \ln \Omega_D(l) \right)\\
+        &\quad \Rightarrow \quad \frac{d}{d k} \left( \ln \binom{I}{k} \right) = \frac{d}{d l} \left( \ln \binom{D}{l} \right)\\
+        &\quad \Rightarrow \quad \frac{d}{d k} \left( \ln \left(\frac{I!}{k!(I-k)!}\right) \right) = \frac{d}{d l} \left(\left( \ln \frac{D!}{l!(D-l)!}\right) \right)\\
+        &\quad \Rightarrow \quad \frac{d}{d k} \left( \ln (I!) - \ln (k!) - \ln ((I-k)!) \right) = \frac{d}{d l} \left( \ln (D!) - \ln (l!) - \ln ((D-l)!) \right)\\
+        &\quad \Rightarrow \quad \frac{d}{d k} \left(- \ln (k!) - \ln ((I-k)!) \right) = \frac{d}{d l} \left(- \ln (l!) - \ln ((D-l)!) \right)\\
+    \end{align*}
+    Usando la aproximacion de Stirling:
+    \begin{align*}
+        \ln (n!) \approx n \ln n - n
+    \end{align*}
+    entonces:
+    \begin{align*}
+        &\frac{d S_l(k)}{d k} = \frac{d S_D(l)} {d l} \\
+        &\Rightarrow \quad \frac{d}{d k} \left(-(k \ln k - k) - ((I-k) \ln (I-k) - (I-k)) \right) = \frac{d}{d l} \left(-(l \ln l - l) - ((D-l) \ln (D-l) - (D-l)) \right)\\
+        &\Rightarrow \quad \left[
+            -\left( \ln k + 1 - 1\right) - \left( -\ln (I-k) - 1 + 1\right) 
+        \right] = \left[
+            -\left( \ln l + 1 - 1\right) - \left( -\ln (D-l) - 1 + 1\right)
+        \right]\\
+        &\Rightarrow \quad \left[
+            -\ln k + \ln (I-k)
+        \right] = \left[
+            -\ln l + \ln (D-l)
+        \right]\quad \Rightarrow \quad \left[
+            \ln \frac{I-k}{k}
+        \right] = \left[
+            \ln \frac{D-l}{l}
+        \right]\\
+        &\Rightarrow \quad \frac{I-k}{k} = \frac{D-l}{l}\quad \Rightarrow \quad I l - k l = k D - k l\\
+        &\Rightarrow \quad I l = k D\quad \Rightarrow \quad \frac{k}{I} = \frac{l}{D} \quad \Rightarrow \quad \frac{k}{I} = \frac{n-k}{N-I}\\
+        &\Rightarrow \quad kN - kI = In - kI \quad \Rightarrow \quad kN = In \quad \Rightarrow \quad k = \frac{In}{N}
+    \end{align*}
+\end{answer}

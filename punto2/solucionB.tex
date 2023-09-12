@@ -4,15 +4,15 @@
         P: &\Omega \mapsto [0,1]\\
         &\omega \mapsto P(\omega) \in [0,1]
     \end{align*}
-    tal que $P := \{(\omega,\rho): \omega \in \Omega \quad \text{y} \quad \rho \in [0,1]\}$ si $\Omega$ es finito y sea $\{p_i\}_{i=1}^n$ un familia de subconjunto de $P$ tal que $p_i \cap p_ j = \emptyset$ para $i\neq j$ y $\bigcup_{i=1}^n p_i = P$ entonces la entropia 
+    tal que $P := \{(\omega,\rho): \omega \in \Omega \quad \text{y} \quad \rho \in [0,1]\}$ si $\Omega$ es finito y sea $\{p_i\}_{i=1}^n$ un familia de conjuntlo de $P$ tal que $p_i \cap p_ j = \emptyset$ para $i\neq j$ y ${\times}_{i=1}^n p_i = P$ entonces la entropia 
     del ensamble la cual se define como:
     \begin{align*}
         S(P) &= -\sum_{(\omega,\rho) \in P} \rho \log \rho = -\sum_{i = 1}^{|\Omega|} P(\omega_i) \log P(\omega_i)\\
         &= -\sum_{i = 1}^{|\Omega|} \rho_i \log \rho_i
     \end{align*} 
     \begin{enumerate}
-        \item $S(P) = S\left(\bigcup_{i=1}^n p_i\right) = \sum_{i=1}^n S(p_i)$
-        \item para $i\neq j$ $S(p_i \cup p_j) = S(p_i) + S(p_j)$
+        \item $S(P) = S\left(\times_{i=1}^n p_i\right) = \sum_{i=1}^n S(p_i)$
+        \item para $i\neq j$ $S(p_i \times p_j) = S(p_i) + S(p_j)$
     \end{enumerate}
     Para un gas ideal de $n$ moleculas en un volumen $V$ particionado en $N$ celda $V_i$ con $i = 1,2,\dots,N$ y $V = \sum_{i=1}^N V_i$ entonces el cojunto de casos totales es 
     \begin{align*}
@@ -31,8 +31,8 @@
     \end{align*}
     donde:
     \begin{align*}
-        \Omega_I(K) &= \{b_0b_1 \dots b_Ic_{I+1}c_{I+2}\dots c_N: b_i \in \{0,1\} \quad \text{y} \quad c_i \in \{0,1\} \text{ fijos}\}\\
-        \Omega_I(K) &= \{d_0d_1\dots d_Ib_{I+1}b_{I+2}\dots b_N: b_i \in \{0,1\} \quad \text{y} \quad d_i \in \{0,1\} \text{ fijos}\}\\
+        \Omega_I(K) &= \{b_0b_1 \dots b_I: b_i \in \{0,1\}\}\\
+        \Omega_D(K) &= \{b_{0}b_{1}\dots b_D: b_i \in \{0,1\}\}\\
     \end{align*}
     entonces el ensamble microcanonico es para $\Omega_I(K)$:
     \begin{align*}
@@ -40,17 +40,17 @@
     \end{align*}
     De la forma analoga definimos el ensamble microcanonico para $\Omega_D(L)$:
     \begin{align*}
-        P_D := \left\{ \left(\omega, \rho \right): \omega \in \Omega_D(L)  \quad \text{y} \quad = \frac{1}{|\Omega_D(L)|}\right\} - \{d_0d_1\dots d_Ic_{I+1}c_{I+2}\dots c_N\}
+        P_D := \left\{ \left(\omega, \rho \right): \omega \in \Omega_D(L)  \quad \text{y} \quad = \frac{1}{|\Omega_D(L)|}\right\}
     \end{align*}
-    Veamos que $P_I \cap P_D = \emptyset$ y $P_I \cup P_D = P$ entonces
+    Veamos que $P_I \cap P_D = \emptyset$ y $P_I \times P_D = P$ entonces
     \begin{align*}
-        S(P) &= S(P_I \cup P_D) = S(P_I) + S(P_D)\\
+        S(P_k) &= S(P_I \times P_D) = S(P_I) + S(P_D)\\
         &= S(P_I) + S(P_D)\\
         &= \log |\Omega_I(K)| + \log |\Omega_D(L)|\\
-        &= \log \binom{I}{k} + \log \binom{D}{l}\\
-        &= \log \frac{I!}{k!(I-k)!} + \log \frac{D!}{l!(D-l)!}\\
-        &= \log \frac{I!D!}{k!(I-k)!l!(D-l)!}\\
-        &= \log \frac{N!}{k!l!(N-k)!(N-l)!}\\
-        &= \log \binom{N}{k}
-    \end{align*}a
+    \end{align*}
+    Por lo tanto la entropia total $S(k) = S_l(k) + S_D(l)$ es maxima cuando:
+    \begin{align*}
+        \frac{d S(k)}{d k} = \frac{d S_l(k)}{d k} + \frac{d S_D(l)} {d l} \frac {d l}{d k} = 0  &\quad \Rightarrow \quad \frac{d S_l(k)}{d k} - \frac{d S_D(l)} {d l} = 0\\
+        &\quad \Rightarrow \quad \frac{d S_l(k)}{d k} = \frac{d S_D(l)} {d l}
+    \end{align*}
 \end{answer}

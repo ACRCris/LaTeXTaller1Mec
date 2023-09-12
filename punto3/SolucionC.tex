@@ -1,0 +1,38 @@
+\begin{answer}
+    Como lo todos los estados son igualmente probables (ensamble microcanonico) entonces la entropia del sistema es:
+    \begin{align*}
+        S &= k_B \ln \Omega\\
+        &= k_B \ln \left( \frac{N!}{D!(N-D)!} \right)\\
+        &= k_B \left[
+            \ln N! - \ln D! - \ln (N-D)!
+        \right]
+    \end{align*}
+    Usando la aproximacion de Stirling:
+    \begin{align*}
+        \ln (n!) \approx n \ln n - n
+    \end{align*}
+    entonces:
+    \begin{align*}
+        S &= k_B \left[
+            \ln N! - \ln D! - \ln (N-D)!
+        \right]\\
+        &= k_B \left[
+            N \ln N - N - D \ln D + D - (N-D) \ln (N-D) + (N-D)
+        \right]\\
+        &= k_B \left[
+            N \ln N - D \ln D - (N-D) \ln (N-D)
+        \right]\\
+        &= k_B \left[
+            N \ln N - D \ln D - N \ln (N-D) + D \ln (N-D)
+        \right]\\
+        &= k_B \left[
+            N \ln N - N \ln (N-D) - D \ln D + D \ln (N-D)
+        \right]\\
+        &= k_B \left[
+            N \ln \frac{N}{N-D} - D \ln \frac{D}{N-D}
+        \right]\\
+        &= k_B \left[
+            N \ln \frac{N}{N-D} + D \ln \frac{N-D}{D}
+        \right]\\
+    \end{align*}
+\end{answer}
